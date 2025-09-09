@@ -1,6 +1,3 @@
-<?php
-// index.php
-?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -10,16 +7,12 @@
   <style>
     :root {
       --primary: #6c63ff;
-      --primary-dark: #5548d6;
+      --primary-dark: #4a3fd9;
       --bg: #f4f6fb;
-      --bot-bg: #ffffff;
+      --bot-bg: #fff;
       --user-bg: var(--primary);
     }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background: var(--bg);
@@ -94,11 +87,7 @@
       font-size: 16px;
       transition: background 0.2s;
     }
-    #send:hover {
-      background: var(--primary-dark);
-    }
-
-    /* Responsive */
+    #send:hover { background: var(--primary-dark); }
     @media (max-width: 600px) {
       header { font-size: 16px; padding: 12px; }
       .msg { font-size: 14px; max-width: 85%; }
@@ -137,7 +126,7 @@
       input.value = "";
 
       try {
-        const res = await fetch("api/chat.php", {
+        const res = await fetch("/api/chat", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ message: text })
